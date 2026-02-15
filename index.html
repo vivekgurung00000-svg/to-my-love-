@@ -103,9 +103,18 @@
       border-radius: 16px;
       max-width: 92%;
       box-shadow: 0 8px 35px rgba(0,0,0,0.25);
-      color: #222;
+      color: #c41e3a;          /* ← All letter text now red */
       line-height: 1.7;
       font-size: clamp(1.05rem, 4vw, 1.2rem);
+    }
+
+    .letter h2 {
+      color: #c41e3a;          /* Red heading too */
+      margin-bottom: 1em;
+    }
+
+    .letter strong {
+      color: #8b0000;          /* Slightly darker red for emphasis */
     }
 
     .cake { font-size: clamp(7rem, 28vw, 12rem); }
@@ -194,7 +203,7 @@
     <p>Tap the envelope...</p>
   </div>
 
-  <!-- Final Letter -->
+  <!-- Final Letter – now with red text -->
   <div id="letter" class="page">
     <div class="letter">
       <h2>Dearest Unisha,</h2>
@@ -211,14 +220,13 @@
     const music = document.getElementById('bgMusic');
     let currentPage = 'welcome';
 
-    // Start music + go to password on first tap/click anywhere on welcome
     document.getElementById('welcome').addEventListener('click', startExperience);
     document.getElementById('welcome').addEventListener('touchstart', startExperience);
 
     function startExperience(e) {
       e.preventDefault();
       if (currentPage === 'welcome') {
-        music.muted = true;  // Helps bypass some autoplay restrictions
+        music.muted = true;
         music.play()
           .then(() => {
             music.muted = false;
